@@ -1,0 +1,47 @@
+.hover-card {
+    transition: all 0.3s ease-in-out;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+}
+
+.card-img-top {
+    height: 300px;
+    object-fit: contain;
+    background-color: #f8f9fa;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-header {
+    background: linear-gradient(45deg, #1a1a1a, #333);
+    color: white;
+    border-bottom: none;
+}
+
+.badge {
+    font-size: 0.9em;
+}
+
+.card-footer {
+    background-color: rgba(0,0,0,0.02);
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.card-text {
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Estilo para limitar la altura de la biografía y agregar elipsis */
+.card-body {
+    max-height: 200px;
+    overflow-y: auto;
+}

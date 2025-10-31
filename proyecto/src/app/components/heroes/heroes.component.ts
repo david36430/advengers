@@ -8,10 +8,19 @@ import { heroesService, Heroe } from 'src/app/services/heroes.service';
 export class HeroesComponent implements OnInit {
 
   heroes:Heroe[]=[];
+  selectedHero: Heroe | null = null;
   constructor(private _heroesService:heroesService) { }
   ngOnInit(): void {
     this.heroes= this. _heroesService.getHeroes();
     console.log(this.heroes);
+  }
+
+  showDetail(heroe: Heroe) {
+    this.selectedHero = heroe;
+  }
+
+  closeDetail() {
+    this.selectedHero = null;
   }
 
 }

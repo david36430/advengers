@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Galería de Héroes</h2>
+  <div class="row gallery-grid">
+    <div class="col-6 col-sm-4 col-md-3 mb-4" *ngFor="let heroe of heroes">
+      <div class="gallery-item" (click)="selectHero(heroe)" role="button" tabindex="0">
+        <img [src]="heroe.img" [alt]="heroe.nombre" class="gallery-img">
+        <div class="gallery-caption">{{ heroe.nombre }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detalle seleccionado -->
+  <div *ngIf="selectedHero" class="selected-detail card mt-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img [src]="selectedHero.img" class="img-fluid" [alt]="selectedHero.nombre">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ selectedHero.nombre }}</h5>
+          <p class="card-text">{{ selectedHero.bio }}</p>
+          <p class="card-text"><small class="text-muted">Casa: {{ selectedHero.casa }} · Primera aparición: {{ selectedHero.aparicion | date:'yyyy' }}</small></p>
+          <button class="btn btn-secondary" (click)="clearSelection()">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

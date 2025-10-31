@@ -1,12 +1,19 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({providedIn: 'root'})
+export interface Heroe {
+  nombre: string;
+  bio: string;
+  img: string;
+  aparicion: string;
+  casa: string;
+}
 
-
-
+@Injectable({
+  providedIn: 'root'
+})
 export class heroesService {
-
-private heroes:Heroe[]= [
+  
+  private heroes: Heroe[] = [
     {
       nombre: "Aquaman",
       bio: "El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a grandes distancias.",
@@ -57,22 +64,61 @@ private heroes:Heroe[]= [
       casa: "Marvel"
     }
   ];
+    private FAVORITO_KEY = 'avengers-favorito';
 
-constructor() {
-        console.log("servicio listo para uilizar");
-     }
+    constructor() {
+      console.log("servicio listo para uilizar");
+    }
 
-getHeroes():Heroe[]{
-    return this.heroes;
-}
-    
-}
+    getHeroes():Heroe[]{
+      return this.heroes;
+    }
 
-export interface Heroe{
-  nombre: string;
-  bio: string;
-  img: string;
-  aparicion:string;
-  casa:string;
-    
+    /** Buscar héroe por nombre */
+    findByName(nombre: string): Heroe | undefined {
+      return this.heroes.find(h => h.nombre === nombre);
+    }
+
+    /** Persistir el nombre del favorito en localStorage */
+    setFavorito(nombre: string | null): void {
+      if (nombre) {
+        localStorage.setItem(this.FAVORITO_KEY, nombre);
+      } else {
+        localStorage.removeItem(this.FAVORITO_KEY);
+      }
+    }
+
+    /** Obtener el nombre almacenado como favorito */
+    getFavoritoNombre(): string | null {
+      return localStorage.getItem(this.FAVORITO_KEY);
+    }
+
+    /** Obtener el objeto Heroe marcado como favorito (si existe) */
+    getFavorito(): Heroe | null {
+      const nombre = this.getFavoritoNombre();
+      if (!nombre) return null;
+      return this.findByName(nombre) || null;
+    }
+
+    /** Eliminar favorito */
+    clearFavorito(): void {
+      localStorage.removeItem(this.FAVORITO_KEY);
+    }
+
+    /** Toggle favorito; devuelve true si quedó marcado, false si se desmarcó */
+    toggleFavorito(nombre: string): boolean {
+      const current = this.getFavoritoNombre();
+      if (current === nombre) {
+        this.clearFavorito();
+        return false;
+      }
+      this.setFavorito(nombre);
+      return true;
+    }
+
+    /** Comprueba si el nombre es el favorito actual */
+    isFavorito(nombre: string): boolean {
+      return this.getFavoritoNombre() === nombre;
+    }
+
 }

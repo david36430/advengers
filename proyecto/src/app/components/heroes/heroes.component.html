@@ -1,10 +1,19 @@
-<div class="card-group">
-    <div class="card" *ngFor="let heroe of heroes">
-        <img class="card-img-top" [src]="heroe.img" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">{{heroe.nombre}}</h5>
-            <p class="card-text">{{heroe.bio}}</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let heroe of heroes">
+        <div class="card h-100">
+            <img class="card-img-top img-fluid" [src]="heroe.img" [alt]="heroe.nombre">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">{{ heroe.nombre }}</h5>
+                <p class="card-text text-truncate">{{ heroe.bio }}</p>
+                <p class="card-text mt-auto"><small class="text-muted">Primera aparición: {{ heroe.aparicion | date:'yyyy' }}</small></p>
+                <button class="btn btn-outline-primary btn-block mt-2" (click)="showDetail(heroe)">Ver más</button>
+            </div>
+            <div *ngIf="selectedHero === heroe" class="card-footer bg-light">
+                <h6>Detalle</h6>
+                <p class="mb-1">{{ heroe.bio }}</p>
+                <p class="mb-1"><strong>Casa:</strong> {{ heroe.casa }}</p>
+                <button class="btn btn-sm btn-secondary" (click)="closeDetail()">Cerrar</button>
+            </div>
         </div>
     </div>
 </div>

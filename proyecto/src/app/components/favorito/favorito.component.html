@@ -1,0 +1,22 @@
+<div class="container mt-3">
+  <div *ngIf="personajeFavorito; else noFav">
+    <div class="card mx-auto" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img [src]="personajeFavorito?.img" class="img-fluid rounded-start" [alt]="personajeFavorito?.nombre">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ personajeFavorito?.nombre }}</h5>
+            <p class="card-text">{{ personajeFavorito?.bio }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noFav>
+    <div class="alert alert-info" role="alert">
+      No hay ningún personaje marcado como favorito. Marca uno desde la lista de personajes.
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,50 @@
+:host {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.carousel {
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #000;
+}
+
+.carousel-item {
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-item img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Caption que aparece debajo de la imagen (no overlay) */
+.carousel-caption-below {
+  position: static;
+  background: #ffffff;
+  color: #222;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin: 8px auto 0 auto;
+  max-width: 90%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.carousel-caption-below h3 {
+  color: #111;
+  font-size: 1.25rem;
+  margin: 0 0 6px 0;
+}
+
+.carousel-caption-below p {
+  color: #444;
+  margin: 0 0 6px 0;
+}
+
+/* En móviles dejamos la información siempre visible debajo de la imagen */
+@media (max-width: 767px) {
+  .carousel-caption-below.d-none.d-md-block { display: block !important; }
+}

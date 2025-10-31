@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <div id="comicsCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let heroe of heroes; let i = index" [class.active]="i === 0">
+        <img [src]="heroe.img" class="d-block w-100" [alt]="heroe.nombre">
+        <!-- Mostrar la información debajo de la imagen en lugar de sobreponerla -->
+        <div class="carousel-caption-below d-none d-md-block">
+          <h3>{{heroe.nombre}}</h3>
+          <p>{{heroe.bio | slice:0:200}}...</p>
+          <small>{{heroe.casa}} - Primera aparición: {{heroe.aparicion | date:'yyyy'}}</small>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#comicsCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#comicsCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+  </div>
+</div>

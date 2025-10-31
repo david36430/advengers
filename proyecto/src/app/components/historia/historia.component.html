@@ -1,0 +1,12 @@
+<div class="container mt-4 timeline-container">
+  <h2 class="text-center mb-4">Historia de los Vengadores</h2>
+  <div class="timeline">
+    <div *ngFor="let evento of eventos" class="timeline-item">
+      <div class="anio">{{ evento.anio }}</div>
+      <div class="contenido">
+        <h3>{{ evento.titulo }}</h3>
+        <p>{{ evento.descripcion }}</p>
+      </div>
+    </div>
+  </div>
+</div>

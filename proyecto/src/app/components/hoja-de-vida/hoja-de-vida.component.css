@@ -1,0 +1,419 @@
+.cv-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Banner */
+.banner {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/assets/img/taller.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.overlay {
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.overlay h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.overlay p {
+  font-size: 1.5rem;
+  opacity: 0.9;
+}
+
+/* Profile Grid */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding: 2rem;
+}
+
+.profile-info {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.profile-image {
+  text-align: center;
+}
+
+.profile-pic {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.02);
+}
+
+/* Personal Info Styling */
+.personal-info p {
+  margin: 1rem 0;
+  padding: 0.8rem;
+  border-radius: 8px;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.personal-info p:hover {
+  background: #e9ecef;
+  transform: translateX(10px);
+}
+
+.personal-info i {
+  margin-right: 10px;
+  color: #3498db;
+  width: 20px;
+  text-align: center;
+}
+
+/* Sections Styling */
+.cv-section {
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.cv-section h2 {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.cv-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: #3498db;
+  border-radius: 2px;
+}
+
+/* Education & References Lists */
+.education-list, .references-list {
+  list-style: none;
+  padding: 0;
+}
+
+.education-list li, .references-list li {
+  background: #f8f9fa;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.education-list li:hover, .references-list li:hover {
+  background: #e9ecef;
+  transform: translateX(10px);
+}
+
+/* Job Experience */
+.job {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.job:hover {
+  background: #e9ecef;
+  transform: translateX(10px);
+}
+
+.job h3 {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.job-details {
+  line-height: 1.8;
+}
+
+.job-details span {
+  color: #3498db;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+/* Portfolio Gallery */
+.portfolio-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.portfolio-gallery img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.portfolio-gallery img:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Footer */
+.cv-footer {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+.footer-contact {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.footer-contact p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.footer-contact i {
+  margin-right: 8px;
+}
+
+.footer-contact a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: #3498db;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .banner {
+    height: 300px;
+  }
+
+  .overlay h1 {
+    font-size: 2.5rem;
+  }
+
+  .cv-section {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .portfolio-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-contact {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .cv-container {
+    box-shadow: none;
+  }
+
+  .banner {
+    height: 200px;
+  }
+
+  .portfolio-gallery img {
+    max-width: 200px;
+  }
+}
+
+.cv-section {
+  margin-bottom: 2.5rem;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.header-section {
+  text-align: center;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.header-section h1 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.personal-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  text-align: left;
+}
+
+.personal-info p {
+  margin: 0.5rem 0;
+  color: #34495e;
+}
+
+.cv-section h2 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #3498db;
+}
+
+.section-content {
+  color: #34495e;
+  line-height: 1.6;
+}
+
+.education-list, .references-list {
+  list-style: none;
+  padding: 0;
+}
+
+.education-list li, .references-list li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.education-list li:before, .references-list li:before {
+  content: "•";
+  color: #3498db;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.job {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+}
+
+.job h3 {
+  color: #2c3e50;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.job-details {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.job-details span {
+  font-weight: 600;
+  color: #3498db;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+.cv-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid #f0f0f0;
+  text-align: center;
+  color: #7f8c8d;
+}
+
+.footer-contact {
+  margin-top: 1rem;
+}
+
+.footer-contact p {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .cv-container {
+    padding: 1rem;
+  }
+
+  .cv-section {
+    padding: 1rem;
+  }
+
+  .header-section h1 {
+    font-size: 2rem;
+  }
+
+  .personal-info {
+    grid-template-columns: 1fr;
+  }
+}

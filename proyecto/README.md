@@ -1,27 +1,70 @@
-# Proyecto
+# avengers-spa
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
+Aplicación SPA en Angular: "Avengers Universe"
 
-## Development server
+## Objetivo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Desarrollar una aplicación web de una sola página (SPA) utilizando Angular, aplicando conceptos de componentes, enrutamiento, servicios y comunicación entre componentes.
 
-## Code scaffolding
+## Cómo ejecutar
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Abrir terminal en la carpeta del proyecto:
 
-## Build
+	`c:\Users\Gemelos321\Documents\ejercicio angular\advengers\proyecto`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. Instalar dependencias:
 
-## Running unit tests
+```powershell
+npm install
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Iniciar servidor de desarrollo:
 
-## Running end-to-end tests
+```powershell
+# Si tu Node da error por OpenSSL (v17+), usar la opción legacy:
+set NODE_OPTIONS=--openssl-legacy-provider; npm start
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# O en cmd:
+set "NODE_OPTIONS=--openssl-legacy-provider" && npm start
+```
 
-## Further help
+4. Abrir en el navegador: http://localhost:4200
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Estructura y componentes
+
+La app incluye los siguientes componentes (ubicación bajo `src/app/components`):
+
+- `CarruselComicsComponent`: `carrusel-comics` - muestra un carrusel con imágenes (Bootstrap carousel).
+- `PersonajesComponent`: `personajes` - lista de personajes en tarjetas con botón de "marcar favorito".
+- `FavoritoComponent`: `favorito` - muestra el personaje favorito (persistido en localStorage).
+- `HistoriaComponent`: `historia` - línea temporal con eventos (texto).
+- `GaleriaComponent`: `galeria` - galería de imágenes con efectos hover.
+- `HojaDeVidaComponent`: `hoja-de-vida` - CV/hoja de vida simulada.
+
+## Favorito (persistencia)
+
+El favorito se guarda en `localStorage` con la clave `avengers-favorito`. El servicio `heroes.service.ts` expone métodos:
+
+- `getFavorito()` - devuelve el objeto `Heroe` marcado como favorito (o `null`).
+- `setFavorito(nombre)` - guarda el favorito.
+- `toggleFavorito(nombre)` - alterna el favorito y devuelve `true` si quedó marcado.
+
+## Flujo para la demo
+
+1. Ir a "Comics" (carrusel) y ver las imágenes con captions debajo.
+2. Ir a "Personajes" y marcar un personaje como favorito.
+3. La app navegará a `/favorito?nombre=...` y mostrará la ficha del favorito.
+4. Ir a "Historia" para ver la línea temporal (texto).
+
+## Notas técnicas y recomendaciones
+
+- Si quieres que el favorito use rutas semánticas (`/favorito/:nombre`) puedo adaptarlo fácilmente.
+- Se reportaron vulnerabilidades en dependencias tras `npm install`. Para intentar solucionarlas: `npm audit fix` y revisar cambios.
+
+## Contacto
+
+Repositorio local: `advengers/proyecto`
+
+---
+
+Generado automáticamente para la entrega del taller "Diseño de una SPA en Angular — Avengers Universe".

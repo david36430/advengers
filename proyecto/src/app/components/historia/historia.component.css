@@ -1,0 +1,57 @@
+.timeline-container {
+  padding: 30px;
+  background-color: #f4f4f4;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 2rem;
+  color: #e62429;
+  margin-bottom: 30px;
+}
+
+.timeline {
+  display: grid;
+  gap: 20px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  align-items: center;
+}
+
+.anio {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #555;
+  text-align: center;
+}
+
+.contenido h3 {
+  color: #e62429;
+  margin: 0;
+}
+
+.contenido p {
+  color: #333;
+}
+
+.anio {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #555;
+  text-align: center;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 767px) {
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}

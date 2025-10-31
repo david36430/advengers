@@ -1,0 +1,5 @@
+/* pequeño padding para que no quede pegado al top */
+nav.navbar { padding: 0.35rem 1rem; }
+
+/* logo pequeño ajustes */
+.navbar-brand img { margin-right: 8px; }
