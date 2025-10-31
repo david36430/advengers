@@ -95,7 +95,7 @@ export class heroesService {
 
     /** Obtener el objeto Heroe marcado como favorito (si existe) */
     getFavorito(): Heroe | null {
-      const nombre = this.getFavoritoNombre();
+      const nombre = this.getFavoritoNombre(); 
       if (!nombre) return null;
       return this.findByName(nombre) || null;
     }
