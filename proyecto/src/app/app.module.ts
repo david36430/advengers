@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 
 // Importar todos los componentes
 import { NabvarComponent } from './components/nabvar/nabvar.component';
@@ -15,6 +16,7 @@ import { FavoritoComponent } from './components/favorito/favorito.component';
 import { HistoriaComponent } from './components/historia/historia.component';
 import { GaleriaComponent } from './components/galeria/galeria.component';
 import { HojaDeVidaComponent } from './components/hoja-de-vida/hoja-de-vida.component';
+import { HeroFormComponent } from './components/hero-form/hero-form.component';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,11 @@ import { HojaDeVidaComponent } from './components/hoja-de-vida/hoja-de-vida.comp
     HistoriaComponent,
     GaleriaComponent,
     HojaDeVidaComponent
+    ,HeroFormComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

@@ -13,6 +13,8 @@ export interface Heroe {
 })
 export class heroesService {
   
+  private STORAGE_KEY = 'avengers-heroes';
+
   private heroes: Heroe[] = [
     {
       nombre: "Aquaman",
@@ -67,11 +69,57 @@ export class heroesService {
     private FAVORITO_KEY = 'avengers-favorito';
 
     constructor() {
-      console.log("servicio listo para uilizar");
+      console.log("servicio listo para utilizar");
+      // Cargar heroes desde localStorage si existen
+      const raw = localStorage.getItem(this.STORAGE_KEY);
+      if (raw) {
+        try {
+          const parsed = JSON.parse(raw) as Heroe[];
+          if (Array.isArray(parsed) && parsed.length) {
+            this.heroes = parsed;
+          }
+        } catch (e) {
+          console.warn('Error parsing heroes from storage', e);
+        }
+      }
     }
 
+    /** Devuelve una copia del arreglo para evitar mutaciones externas */
     getHeroes():Heroe[]{
-      return this.heroes;
+      return [...this.heroes];
+    }
+
+    /** Guardar la lista actual de héroes en localStorage */
+    private saveToStorage(): void {
+      try {
+        localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.heroes));
+      } catch (e) {
+        console.warn('No se pudo guardar heroes en localStorage', e);
+      }
+    }
+
+    /** Añadir un nuevo héroe al arreglo y persistir */
+    addHero(heroe: Heroe): void {
+      this.heroes.push(heroe);
+      this.saveToStorage();
+    }
+
+    /** Actualizar un héroe identificado por su nombre. Devuelve true si se actualizó */
+    updateHero(nombre: string, updates: Partial<Heroe>): boolean {
+      const idx = this.heroes.findIndex(h => h.nombre === nombre);
+      if (idx === -1) return false;
+      this.heroes[idx] = { ...this.heroes[idx], ...updates };
+      this.saveToStorage();
+      return true;
+    }
+
+    /** Eliminar un héroe por nombre. Devuelve true si se eliminó */
+    deleteHero(nombre: string): boolean {
+      const idx = this.heroes.findIndex(h => h.nombre === nombre);
+      if (idx === -1) return false;
+      this.heroes.splice(idx, 1);
+      this.saveToStorage();
+      return true;
     }
 
     /** Buscar héroe por nombre */

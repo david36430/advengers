@@ -1,3 +1,9 @@
+<div class="mb-3">
+    <button class="btn btn-success" (click)="toggleForm()">{{ showForm ? 'Cancelar' : 'Agregar héroe' }}</button>
+</div>
+
+<app-hero-form *ngIf="showForm" (created)="onHeroCreated($event)"></app-hero-form>
+
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col" *ngFor="let heroe of heroes">
         <div class="card h-100">

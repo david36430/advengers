@@ -9,6 +9,7 @@ export class HeroesComponent implements OnInit {
 
   heroes:Heroe[]=[];
   selectedHero: Heroe | null = null;
+  showForm = false;
   constructor(private _heroesService:heroesService) { }
   ngOnInit(): void {
     this.heroes= this. _heroesService.getHeroes();
@@ -21,6 +22,16 @@ export class HeroesComponent implements OnInit {
 
   closeDetail() {
     this.selectedHero = null;
+  }
+
+  toggleForm() {
+    this.showForm = !this.showForm;
+  }
+
+  onHeroCreated(heroe: Heroe) {
+    // refrescar la lista desde el servicio
+    this.heroes = this._heroesService.getHeroes();
+    this.showForm = false;
   }
 
 }

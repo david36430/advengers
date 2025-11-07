@@ -1,0 +1,37 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">Agregar héroe</h5>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="mb-2">
+        <label class="form-label">Nombre</label>
+        <input name="nombre" class="form-control" required [(ngModel)]="model.nombre">
+      </div>
+
+      <div class="mb-2">
+        <label class="form-label">Biografía</label>
+        <textarea name="bio" class="form-control" required rows="3" [(ngModel)]="model.bio"></textarea>
+      </div>
+
+      <div class="mb-2">
+        <label class="form-label">Imagen (ruta)</label>
+        <input name="img" class="form-control" [(ngModel)]="model.img">
+      </div>
+
+      <div class="mb-2 row">
+        <div class="col">
+          <label class="form-label">Aparición</label>
+          <input type="date" name="aparicion" class="form-control" [(ngModel)]="model.aparicion">
+        </div>
+        <div class="col">
+          <label class="form-label">Casa</label>
+          <select name="casa" class="form-select" [(ngModel)]="model.casa">
+            <option>Marvel</option>
+            <option>DC</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Agregar</button>
+    </form>
+  </div>
+</div>
